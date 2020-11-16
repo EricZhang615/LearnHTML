@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>KyotoAnimation Unofficial Fanclub</title>
     <link rel="stylesheet" type="text/css" href="basicStyle.css">
+
 </head>
 <body>
     <div style="height: 60px"></div>
@@ -17,6 +18,21 @@
 
     <div id="indexBkgImg">
         <img src="../src/testImg.jpg" style="width: 100%;height: auto;" alt="bkg">
+        <div class="music">
+            <audio src="" id="audiosrc"></audio>
+            <div class="musicControl">
+                <div class="musicControl prev" onclick="prevMusic()"></div>
+                <div id="musicPlay" class="musicControl play" onclick="playMusic()"></div>
+                <div class="musicControl next" onclick="nextMusic()"></div>
+            </div>
+            <div class="musicTitle">
+                <span id="TrackTitle"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="pageBand">
+
     </div>
 
     <div id="indexSponsorTable">
@@ -36,6 +52,9 @@
         </table>
     </div>
 
+    <div id="indexNewsTab">
+        <iframe id="newsFrame" src="news.html"></iframe>
+    </div>
 
     <div class="footer">
         <div class="footer_left">
@@ -47,3 +66,4 @@
     </div>
 </body>
 </html>
+<script src="music.js"></script>
