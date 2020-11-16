@@ -24,6 +24,23 @@ ul.topnav li a {
     text-decoration: none;
 }
 
+.backToTop{
+    position: fixed;
+    top: 600px;
+    background-color: #F5B199;
+    right: 0;
+    height: 60px;
+    width: 60px;
+}
+
+.backToTop a{
+    display: block;
+    color: #F8FBF8;
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+}
+
 #indexBkgImg {
 
     width: 100%;
@@ -132,7 +149,6 @@ ul.topnav li a {
     position: absolute;
     top: 80%;
     left: 15%;
-    z-index: 8;
 }
 
 .musicControl{

@@ -13,8 +13,8 @@ function fadeOut(){
             clearInterval(timeFade);
             for (var i=0;i<6;i++){
                 document.getElementById(imgList[i]).style.zIndex++;
-                if (document.getElementById(imgList[i]).style.zIndex == 7){
-                    document.getElementById(imgList[i]).style.zIndex = 1;
+                if (document.getElementById(imgList[i]).style.zIndex == 0){
+                    document.getElementById(imgList[i]).style.zIndex = -6;
                 }
             }
             index1++;

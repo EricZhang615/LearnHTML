@@ -49,5 +49,6 @@ function prevMusic(){
 }
 
 window.onload=function (){
+    music.volume=0.5;
     getMusic();
 }
