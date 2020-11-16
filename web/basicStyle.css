@@ -32,10 +32,11 @@ ul.topnav li a {
     border: 0;
     padding: 0;
     margin: 0;
-    z-index: -1;
 }
 
 #bkgImg1{
+    position: relative;
+    top: 0px;
     background-image: url("../src/Image/Img1.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -62,6 +63,7 @@ ul.topnav li a {
     padding: 0;
     margin: 0;
 }
+
 #bkgImg3{
     position: relative;
     top: -1400px;
@@ -130,6 +132,7 @@ ul.topnav li a {
     position: absolute;
     top: 80%;
     left: 15%;
+    z-index: 8;
 }
 
 .musicControl{
