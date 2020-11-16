@@ -2,6 +2,7 @@
 var music=document.getElementById("audiosrc");
 var index=0;
 var musicList=new Array("testmusic.mp3");
+var btn=document.getElementById("musicPlay");
 
 function getMusic(){
     music.src="../src/Music/"+musicList[index];
@@ -9,7 +10,6 @@ function getMusic(){
 }
 
 function playMusic(){
-    var btn=document.getElementById("musicPlay");
     if (music.paused){
         music.play();
         btn.style.background="url(../src/musicpause.png) no-repeat";
@@ -35,6 +35,7 @@ function nextMusic(){
     }
     getMusic();
     music.play();
+    btn.style.background="url(../src/musicpause.png) no-repeat";
 }
 
 function prevMusic(){
@@ -44,6 +45,7 @@ function prevMusic(){
     }
     getMusic();
     music.play();
+    btn.style.background="url(../src/musicpause.png) no-repeat";
 }
 
 window.onload=function (){
