@@ -7,6 +7,14 @@ var lowerElement=document.getElementById("bkgImg2");
 
 var timeFade = null;
 
+setTimeout(function (){
+        lowerElement.style.backgroundImage="url(../src/Image/Img2.jpg)";}
+    ,100)
+
+if (upperElement.style.opacity < -0.01){
+    upperElement.style.opacity = 0;
+}
+
 function fadeOut(){
     timeFade = setInterval(function (){
         upperElement.style.opacity -= 0.01;
@@ -31,4 +39,5 @@ setInterval(function (){
     setTimeout(function (){lowerElement.style.backgroundImage=("url(../src/Image/"+imgList[index2]+".jpg)")},3000);
 
 },5000);
+
 
