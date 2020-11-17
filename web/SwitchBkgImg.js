@@ -1,22 +1,17 @@
 
-var imgList=["bkgImg1","bkgImg2","bkgImg3","bkgImg4","bkgImg5","bkgImg6"];
+var imgList=["Img1","Img2","Img3","Img4","Img5","Img6"];
 var index1=0;
-var index2=2;
+var index2=1;
+var upperElement=document.getElementById("bkgImg1");
+var lowerElement=document.getElementById("bkgImg2");
 
 var timeFade = null;
 
 function fadeOut(){
-    var presentImg = document.getElementById(imgList[index1]);
     timeFade = setInterval(function (){
-        presentImg.style.opacity -= 0.01;
-        if (presentImg.style.opacity == 0){
+        upperElement.style.opacity -= 0.01;
+        if (upperElement.style.opacity <= 0){
             clearInterval(timeFade);
-            for (var i=0;i<6;i++){
-                document.getElementById(imgList[i]).style.zIndex++;
-                if (document.getElementById(imgList[i]).style.zIndex == 0){
-                    document.getElementById(imgList[i]).style.zIndex = -6;
-                }
-            }
             index1++;
             if (index1 == 6){
                 index1 = 0;
@@ -30,6 +25,10 @@ function fadeOut(){
 }
 
 setInterval(function (){
-    document.getElementById(imgList[index2]).style.opacity = 1;
     fadeOut();
+    setTimeout(function (){upperElement.style.backgroundImage=("url(../src/Image/"+imgList[index1]+".jpg)")},2000);
+    setTimeout(function (){upperElement.style.opacity=1},2500);
+    setTimeout(function (){lowerElement.style.backgroundImage=("url(../src/Image/"+imgList[index2]+".jpg)")},3000);
+
 },5000);
+
