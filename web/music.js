@@ -5,14 +5,14 @@ var musicList=new Array("testmusic.mp3");
 var btn=document.getElementById("musicPlay");
 
 function getMusic(){
-    music.src="../src/Music/"+musicList[index];
+    music.src="Music/"+musicList[index];
     document.getElementById("TrackTitle").innerHTML=musicList[index].replace(".mp3","&nbsp");
 }
 
 function playMusic(){
     if (music.paused){
         music.play();
-        btn.style.background="url(../src/musicpause.png) no-repeat";
+        btn.style.background="url(musicpause.png) no-repeat";
         if (music.currentTime >= music.duration - 1){
             index ++;
             if (index >= musicList.length){
@@ -24,7 +24,7 @@ function playMusic(){
     }
     else {
         music.pause();
-        btn.style.background="url(../src/musicplay.png) no-repeat";
+        btn.style.background="url(musicplay.png) no-repeat";
     }
 }
 
@@ -35,7 +35,7 @@ function nextMusic(){
     }
     getMusic();
     music.play();
-    btn.style.background="url(../src/musicpause.png) no-repeat";
+    btn.style.background="url(musicpause.png) no-repeat";
 }
 
 function prevMusic(){
@@ -45,7 +45,7 @@ function prevMusic(){
     }
     getMusic();
     music.play();
-    btn.style.background="url(../src/musicpause.png) no-repeat";
+    btn.style.background="url(musicpause.png) no-repeat";
 }
 
 window.onload=function (){

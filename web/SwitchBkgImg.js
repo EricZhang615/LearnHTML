@@ -8,7 +8,7 @@ var lowerElement=document.getElementById("bkgImg2");
 var timeFade = null;
 
 setTimeout(function (){
-        lowerElement.style.backgroundImage="url(../src/Image/Img2.jpg)";}
+        lowerElement.style.backgroundImage="url(Image/Img2.jpg)";}
     ,100)
 
 if (upperElement.style.opacity < -0.01){
@@ -34,9 +34,9 @@ function fadeOut(){
 
 setInterval(function (){
     fadeOut();
-    setTimeout(function (){upperElement.style.backgroundImage=("url(../src/Image/"+imgList[index1]+".jpg)")},2000);
+    setTimeout(function (){upperElement.style.backgroundImage=("url(Image/"+imgList[index1]+".jpg)")},2000);
     setTimeout(function (){upperElement.style.opacity=1},2500);
-    setTimeout(function (){lowerElement.style.backgroundImage=("url(../src/Image/"+imgList[index2]+".jpg)")},3000);
+    setTimeout(function (){lowerElement.style.backgroundImage=("url(Image/"+imgList[index2]+".jpg)")},3000);
 
 },5000);
 

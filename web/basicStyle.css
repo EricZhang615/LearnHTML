@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-image: url(../src/stripe.png);
+    background-image: url(stripe.png);
 }
 
 ul.topnav {
@@ -12,6 +12,7 @@ ul.topnav {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1;
 }
 
 ul.topnav li {float: left;}
@@ -53,7 +54,7 @@ ul.topnav li a {
 #bkgImg1{
     position: relative;
     top: 0;
-    background-image: url("../src/Image/Img1.jpg");
+    background-image: url("Image/Img1.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
@@ -67,7 +68,7 @@ ul.topnav li a {
 #bkgImg2{
     position: relative;
     top: -700px;
-    background-image: url("../src/Image/Img1.jpg");
+    background-image: url("Image/Img1.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
@@ -96,14 +97,14 @@ ul.topnav li a {
 }
 
 .musicControl.prev {
-    background: url(../src/musicprev.png);
+    background: url(musicprev.png);
     float: left;
     height: 50px;
     width: 50px;
 }
 
 .musicControl.play {
-    background: url(../src/musicplay.png) no-repeat;
+    background: url(musicplay.png) no-repeat;
     float: left;
     margin-left: 20px;
     height: 50px;
@@ -111,7 +112,7 @@ ul.topnav li a {
 }
 
 .musicControl.next {
-    background: url(../src/musicnext.png);
+    background: url(musicnext.png);
     float: left;
     margin-left: 20px;
     height: 50px;
@@ -133,11 +134,10 @@ ul.topnav li a {
 }
 
 .loginWindow{
-    position: relative;
-    background-color: #F5B199;
-
-    top: -4050px;
-    left: 950px;
+    position: absolute;
+    background-color: rgba(255,255,255,0.8);
+    top: 200px;
+    right: 200px;
     height: 400px;
     width: 300px;
     border-radius: 25px;
