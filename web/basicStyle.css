@@ -13,6 +13,7 @@ ul.topnav {
     top: 0;
     width: 100%;
     z-index: 1;
+    box-shadow: 0 0 10px 3px #2b2b2b;
 }
 
 ul.topnav li {float: left;}
@@ -23,6 +24,11 @@ ul.topnav li a {
     text-align: center;
     padding: 20px 30px;
     text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+ul.topnav li a:hover{
+    background-color: #EE827C;
 }
 
 .backToTop{
@@ -32,6 +38,11 @@ ul.topnav li a {
     right: 0;
     height: 60px;
     width: 60px;
+    transition-duration: 0.3s;
+}
+
+.backToTop:hover{
+    background-color: #EE827C;
 }
 
 .backToTop a{
@@ -84,9 +95,9 @@ ul.topnav li a {
 }
 
 .music{
-    position: absolute;
-    top: 80%;
-    left: 15%;
+    position: relative;
+    margin-left: 200px;
+    top: -140px;
 }
 
 .musicControl{
@@ -101,6 +112,12 @@ ul.topnav li a {
     float: left;
     height: 50px;
     width: 50px;
+    opacity: 80%;
+    transition-duration: 0.3s;
+}
+
+.musicControl.prev:hover{
+    filter: brightness(70%);
 }
 
 .musicControl.play {
@@ -109,6 +126,12 @@ ul.topnav li a {
     margin-left: 20px;
     height: 50px;
     width: 50px;
+    opacity: 80%;
+    transition-duration: 0.3s;
+}
+
+.musicControl.play:hover{
+    filter: brightness(70%);
 }
 
 .musicControl.next {
@@ -117,6 +140,12 @@ ul.topnav li a {
     margin-left: 20px;
     height: 50px;
     width: 50px;
+    opacity: 80%;
+    transition-duration: 0.3s;
+}
+
+.musicControl.next:hover{
+    filter: brightness(70%);
 }
 
 .musicTitle{
@@ -138,9 +167,75 @@ ul.topnav li a {
     background-color: rgba(255,255,255,0.8);
     top: 200px;
     right: 200px;
-    height: 400px;
+    height: 375px;
     width: 300px;
     border-radius: 25px;
+}
+
+.loginWindow form>div:nth-of-type(1){
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.loginWindow form>input:nth-of-type(1){
+    margin-top: 3px;
+    margin-left: 40px;
+    width: 220px;
+    height: 40px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 15px;
+}
+
+.loginWindow form>input:nth-of-type(1):focus{
+    outline: none;
+}
+
+.loginWindow form>div:nth-of-type(2){
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.loginWindow form>input:nth-of-type(2){
+    margin-top: 3px;
+    margin-left: 40px;
+    width: 220px;
+    height: 40px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 15px;
+}
+
+.loginWindow form>input:nth-of-type(2):focus{
+    outline: none;
+}
+
+.loginWindow button{
+    margin-top: 30px;
+    margin-left: 40px;
+    width: 220px;
+    height: 40px;
+    border: 0;
+    border-radius: 15px;
+    background-color: #F5B199;
+    transition-duration: 0.3s;
+    outline: none;
+}
+
+.loginWindow button:hover{
+    background-color: #EE827C;
+    color: #F8FBF8;
+}
+
+.loginWindow div{
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.loginWindow div>a{
+    margin-left: 5px;
+    text-decoration: none;
+
 }
 
 #pageBand{
@@ -150,6 +245,7 @@ ul.topnav li a {
     border: 0;
     padding: 0;
     margin: 0;
+    box-shadow: 0 -70px 100px 30px #281A14;
 }
 
 .footer {
