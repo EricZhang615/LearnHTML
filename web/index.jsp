@@ -15,6 +15,14 @@
     }
     String uid = (String) request.getSession().getAttribute("uid");
 
+    Integer hitsCount = (Integer)application.getAttribute("hitCounter");
+    if( hitsCount == null || hitsCount == 0 ){
+        hitsCount = 1;
+    }else{
+        hitsCount += 1;
+    }
+    application.setAttribute("hitCounter", hitsCount);
+
 
 
 %>
@@ -94,6 +102,7 @@
             <span id="TrackTitle"></span>
         </div>
     </div>
+    <div><%=hitsCount%> views in total</div>
 </div>
 
 <div id="indexSponsorTable">
