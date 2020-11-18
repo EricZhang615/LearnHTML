@@ -7,6 +7,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%--<%@include file="homepage.html"%>--%>
+
+<%
+
+    if (request.getSession().getAttribute("uid") == null){
+        request.getSession().setAttribute("uid","0");
+    }
+    String uid = (String) request.getSession().getAttribute("uid");
+
+
+
+%>
+
+
+
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -21,7 +36,11 @@
     <li><a href="#1">Memo</a></li>
     <li><a href="#2">Shop</a></li>
     <li><a href="#3">Contact us</a></li>
-    <li style="float: right"><a href="#4">Sign in</a></li>
+    <% if (uid.equals("0")) { %>
+    <li style="float: right"><a href="RegisterPage.jsp">Sign in</a></li>
+    <% } else { %>
+    <li style="float: right"><a href="Logout.jsp">Log Out</a></li>
+    <% } %>
 </ul>
 
 <div class="backToTop">
@@ -37,6 +56,7 @@
     <!--        <div id="bkgImg5" style="opacity: 0;z-index: -5"></div>-->
     <!--        <div id="bkgImg6" style="opacity: 0;z-index: -6"></div>-->
 
+    <% if (uid.equals("0")) { %>
     <div class="loginWindow">
         <form id="loginForm" action="LoginVerifyPage.jsp" method="post">
             <div>Username:</div>
@@ -57,8 +77,9 @@
                 }
             }
         </script>
-        <div>还没有账号？<a href="#">注册一个</a></div>
+        <div>还没有账号？<a href="RegisterPage.jsp">注册一个</a></div>
     </div>
+    <% } %>
 </div>
 
 <div id="pageBand">
@@ -107,3 +128,16 @@
 </html>
 <script src="music.js"></script>
 <script src="SwitchBkgImg.js"></script>
+<% if (request.getSession().getAttribute("errState") == "wrongUser"){ %>
+<script>
+    window.alert("用户名错误")
+</script>
+<%request.getSession().setAttribute("errState",null);}else if (request.getSession().getAttribute("errState") == "wrongPass"){%>
+<script>
+    window.alert("密码错误")
+</script>
+<%request.getSession().setAttribute("errState",null);}else if (request.getSession().getAttribute("errState") == "registerSuccess"){%>
+<script>
+    window.alert("注册成功 已自动登陆")
+</script>
+<%request.getSession().setAttribute("errState",null);}%>

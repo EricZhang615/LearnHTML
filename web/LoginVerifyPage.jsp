@@ -38,11 +38,18 @@
                 String passwordDb = rs.getString("password");
                 String uid = rs.getString("uid");
                 if (password.equals(passwordDb)){
-                    out.print("<p>"+uid+"</p>");
+//                    out.print("<p>"+uid+"</p>");
+                    request.getSession().setAttribute("uid",uid);
+
                 }
                 else {
-                    out.print("<p>err</p>");
+                    request.getSession().setAttribute("errState","wrongPass");
                 }
+                response.sendRedirect("index.jsp");
+            }
+            else {
+                request.getSession().setAttribute("errState","wrongUser");
+                response.sendRedirect("index.jsp");
             }
             rs.close();
             stmt.close();
