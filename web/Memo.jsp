@@ -10,6 +10,31 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
+<%
+    String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    String DB_URL = "jdbc:mysql://localhost:3306/userlist?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    String USER = "root";
+    String PASS = "zzy20000615";
+
+    if (request.getSession().getAttribute("uid") == "0" ||request.getSession().getAttribute("uid") == null){
+        request.getSession().setAttribute("errState","unauthenticated");
+        response.sendRedirect("index.jsp");
+    }
+
+
+
+    Connection conn = null;
+    Statement stmt = null;
+    try{
+        Class.forName(JDBC_DRIVER);
+        conn = DriverManager.getConnection(DB_URL,USER,PASS);
+        stmt = conn.createStatement();
+        String sql;
+        sql = "SELECT * FROM memo ORDER BY memoId DESC";
+        ResultSet rs = stmt.executeQuery(sql);
+        %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -28,13 +53,25 @@
 
 
 <div id="indexBkgImg">
-    <div style="width: 100%;height: 0;overflow:visible;border: 0;padding: 0;margin: 0;filter: blur(10px) brightness(70%)">
+    <div style="position: relative;z-index: -1;width: 100%;height: 0;overflow:visible;border: 0;padding: 0;margin: 0;filter: brightness(70%)">
         <div id="bkgImg1" style="opacity: 1;z-index: -1"></div>
         <div id="bkgImg2" style="opacity: 1;z-index: -2"></div>
     </div>
-    <div style="width: 100%;height: 700px;overflow: hidden;border: 0;padding: 0;margin: 0">
+    <div style="position: relative;z-index: 1;width: 100%;height: 700px;overflow: hidden;border: 0;padding: 0;margin: 0">
         <div style="float: left;width: 15%;height: 100%"></div>
-        <div style="float: left;width: 70%;height: 100%"></div>
+        <div style="float: left;width: 70%;height: 100%">
+            <%
+                while (rs.next()){
+                    String uid = rs.getString("uid");
+                    String content = rs.getString("content");
+                    %>
+                    <div class="memoBlock">
+                        <div class="memoUid"><%=uid%></div>
+                        <div class="memoContent"><%=content%></div>
+                    </div>
+                    <%
+                }%>
+        </div>
         <div style="float: left;width: 15%;height: 100%"></div>
     </div>
 </div>
@@ -57,3 +94,26 @@
 </html>
 <script src="SwitchBkgImg.js"></script>
 <script src="music.js"></script>
+<%
+        rs.close();
+        stmt.close();
+        conn.close();
+    }catch(SQLException se){
+        // 处理 JDBC 错误
+        se.printStackTrace();
+    }catch(Exception e){
+        // 处理 Class.forName 错误
+        e.printStackTrace();
+    }finally {
+        // 关闭资源
+        try {
+            if (stmt != null) stmt.close();
+        } catch (SQLException se2) {
+        }// 什么都不做
+        try {
+            if (conn != null) conn.close();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+    }
+%>

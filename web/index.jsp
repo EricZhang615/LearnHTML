@@ -149,4 +149,8 @@
 <script>
     window.alert("注册成功 已自动登陆")
 </script>
+<%request.getSession().setAttribute("errState",null);}else if (request.getSession().getAttribute("errState") == "unauthenticated"){%>
+<script>
+    window.alert("请先登录")
+</script>
 <%request.getSession().setAttribute("errState",null);}%>

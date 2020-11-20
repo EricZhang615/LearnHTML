@@ -117,6 +117,7 @@ ul.topnav li a:hover{
     position: relative;
     margin-left: 200px;
     top: -140px;
+    z-index: 2;
 }
 
 .musicControl{
@@ -340,6 +341,16 @@ ul.topnav li a:hover{
     margin-left: 5px;
     text-decoration: none;
 
+}
+
+.memoBlock{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: #EE827C;
+    float: left;
+    height: 150px;
+    width: 200px;
 }
 
 #pageBand{

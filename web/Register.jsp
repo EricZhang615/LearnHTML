@@ -43,6 +43,7 @@
             request.getSession().setAttribute("uid",newUid);
             request.getSession().setAttribute("errState","registerSuccess");
             response.sendRedirect("index.jsp");
+            maxUid.close();
         }
         rs.close();
         stmt.close();
