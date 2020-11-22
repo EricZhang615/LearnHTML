@@ -12,7 +12,7 @@ ul.topnav {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 0 10px 3px #2b2b2b;
 }
 
@@ -344,13 +344,52 @@ ul.topnav li a:hover{
 }
 
 .memoBlock{
-    margin: 20px;
+    margin-left: 27px;
+    margin-right: 27px;
+    margin-top: 40px;
     padding: 20px;
     border-radius: 25px;
-    background-color: #EE827C;
+    background-color: #F5B199;
     float: left;
     height: 150px;
-    width: 200px;
+    width: 240px;
+    transition-duration: 0.5s;
+}
+
+.memoBlock:hover{
+    background-color: #EE827C;
+}
+
+.memoButton{
+    float: right;
+    margin-top: 30px;
+    margin-right: 30px;
+    width: 220px;
+    height: 40px;
+    border: 0;
+    border-radius: 15px;
+    background-color: #F5B199;
+    transition-duration: 0.3s;
+    outline: none;
+}
+
+.memoButton:hover{
+    background-color: #EE827C;
+}
+
+#memo{
+    margin-top: 100px;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    height: 60%;
+    padding: 25px;
+    border: 0;
+    border-radius: 15px;
+}
+
+#memo:focus{
+    outline: none;
 }
 
 #pageBand{

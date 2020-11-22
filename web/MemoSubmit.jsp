@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: eric
-  Date: 2020/11/18
-  Time: 4:17 下午
+  Date: 2020/11/23
+  Time: 12:21 上午
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -22,8 +22,7 @@
     String USER = "root";
     String PASS = "zzy20000615";
 
-    String usernameInput = request.getParameter("username");
-    String passwordInput = request.getParameter("password");
+    String memoInput = request.getParameter("memo");
 
     Connection conn = null;
     Statement stmt = null;
@@ -32,24 +31,16 @@
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
         stmt = conn.createStatement();
         String sql;
-        sql = "SELECT * FROM user WHERE BINARY username='"+usernameInput+"'";
+        sql = "SELECT max(memoId) memoId FROM memo";
         ResultSet rs = stmt.executeQuery(sql);
 
-        if (rs.next()){
-            request.getSession().setAttribute("errState","existUsername");
-            response.sendRedirect("RegisterPage.jsp");
-        } else {
-            sql = "SELECT max(uid) uid FROM user";
-            ResultSet maxUid = stmt.executeQuery(sql);
-            maxUid.next();
-            String newUid = String.valueOf(Integer.parseInt(maxUid.getString("uid")) + 1);
-            sql = "INSERT INTO user (username,password,uid) VALUES ('"+usernameInput+"','"+passwordInput+"','"+newUid+"')";
-            stmt.execute(sql);
-            request.getSession().setAttribute("uid",newUid);
-            request.getSession().setAttribute("errState","registerSuccess");
-            response.sendRedirect("index.jsp");
-            maxUid.close();
-        }
+        rs.next();
+        String newMemoId = String.valueOf(Integer.parseInt(rs.getString("memoId")) + 1);
+        sql = "INSERT INTO memo (memoId,uid,content,time) VALUES ('"+newMemoId+"','"+request.getSession().getAttribute("uid")+"','"+memoInput+"',NOW())";
+        stmt.execute(sql);
+        request.getSession().setAttribute("errState","memoSubmitSuccess");
+        response.sendRedirect("Memo.jsp");
+
         rs.close();
         stmt.close();
         conn.close();

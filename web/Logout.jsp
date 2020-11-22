@@ -8,6 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+
+    if (request.getSession().getAttribute("uid") == "0" ||request.getSession().getAttribute("uid") == null){
+        request.getSession().setAttribute("errState","unauthenticated");
+        response.sendRedirect("index.jsp");
+    }
+
     request.getSession().removeAttribute("uid");
     request.getSession().removeAttribute("errState");
     response.sendRedirect("index.jsp");

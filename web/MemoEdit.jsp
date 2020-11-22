@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: eric
-  Date: 2020/11/20
-  Time: 1:17 下午
+  Date: 2020/11/22
+  Time: 11:59 下午
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
@@ -12,28 +12,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <%
-    String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    String DB_URL = "jdbc:mysql://localhost:3306/userlist?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    String USER = "root";
-    String PASS = "zzy20000615";
-
     if (request.getSession().getAttribute("uid") == "0" ||request.getSession().getAttribute("uid") == null){
         request.getSession().setAttribute("errState","unauthenticated");
         response.sendRedirect("index.jsp");
     }
 
-
-
-    Connection conn = null;
-    Statement stmt = null;
-    try{
-        Class.forName(JDBC_DRIVER);
-        conn = DriverManager.getConnection(DB_URL,USER,PASS);
-        stmt = conn.createStatement();
-        String sql;
-        sql = "SELECT * FROM memo ORDER BY memoId DESC";
-        ResultSet rs = stmt.executeQuery(sql);
-        %>
+%>
 
 <html>
 <head>
@@ -45,7 +29,7 @@
 <div style="height: 60px;box-shadow: 0 0 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
-    <li><a href="#1">Memo</a></li>
+    <li><a href="Memo.jsp">Memo</a></li>
     <li><a href="#2">Shop</a></li>
     <li><a href="#3">Contact us</a></li>
     <li style="float: right"><a href="Logout.jsp">Log Out</a></li>
@@ -60,23 +44,23 @@
     </div>
     <div style="position: relative;z-index: 1;width: 100%;height: 700px;overflow: hidden;border: 0;padding: 0;margin: 0">
         <div style="float: left;width: 15%;height: 100%"></div>
-        <div style="float: left;width: 70%;height: 100%">
-            <div style="width: 100%;height: 85%;overflow: scroll">
-                <%
-                    while (rs.next()){
-                        String uid = rs.getString("uid");
-                        String content = rs.getString("content");
-                        %>
-                        <div class="memoBlock">
-                           <div class="memoUid"><%=uid%></div>
-                           <div class="memoContent"><%=content%></div>
-                       </div>
-                       <%
-                   }%>
-            </div>
-            <div style="width: 100%;height: 15%">
-                <button class="memoButton" onclick="location.href='MemoEdit.jsp'">Write a New Memo!</button>
-            </div>
+        <div style="float: left;width: 70%;height: 85%;">
+            <form id="memoForm" action="MemoSubmit.jsp" method="post">
+                <textarea id="memo" type="text" name="memo" placeholder="Speak your mind freely..."></textarea>
+            </form>
+            <button id="memoSubmitButton" class="memoButton" onclick="checkMemo()">Submit</button>
+            <script>
+                function checkMemo(){
+                    var receivedMemo=document.getElementById("memo").value;
+
+                    if ( receivedMemo.trim().length > 0 ){
+                        document.getElementById("memoForm").submit();
+                    }
+                    else {
+                        window.alert("留言内容不能为空");
+                    }
+                }
+            </script>
         </div>
         <div style="float: left;width: 15%;height: 100%"></div>
     </div>
@@ -100,30 +84,3 @@
 </html>
 <script src="SwitchBkgImg.js"></script>
 <script src="music.js"></script>
-<%
-        rs.close();
-        stmt.close();
-        conn.close();
-    }catch(SQLException se){
-        // 处理 JDBC 错误
-        se.printStackTrace();
-    }catch(Exception e){
-        // 处理 Class.forName 错误
-        e.printStackTrace();
-    }finally {
-        // 关闭资源
-        try {
-            if (stmt != null) stmt.close();
-        } catch (SQLException se2) {
-        }// 什么都不做
-        try {
-            if (conn != null) conn.close();
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
-    }
-if (request.getSession().getAttribute("errState") == "memoSubmitSuccess"){ %>
-<script>
-    window.alert("留言提交成功")
-</script>
-<%request.getSession().setAttribute("errState",null);}%>

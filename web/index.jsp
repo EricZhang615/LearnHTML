@@ -41,7 +41,7 @@
 <div style="height: 60px;box-shadow: 0 0 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
-    <li><a href="#1">Memo</a></li>
+    <li><a href="Memo.jsp">Memo</a></li>
     <li><a href="#2">Shop</a></li>
     <li><a href="#3">Contact us</a></li>
     <% if (uid.equals("0")) { %>
