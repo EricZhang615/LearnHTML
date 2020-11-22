@@ -38,7 +38,7 @@
 </head>
 
 <body>
-<div style="height: 60px;box-shadow: 0 0 120px 50px #281A14;" id="top"></div>
+<div style="height: 0;box-shadow: 0 60px 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
     <li><a href="Memo.jsp">Memo</a></li>
@@ -56,13 +56,8 @@
 </div>
 
 <div id="indexBkgImg">
-    <!--        <img src="../src/Image/Img1.jpg" style="width: 100%;height: auto;" alt="bkg">-->
     <div id="bkgImg1" style="opacity: 1;z-index: -1"></div>
     <div id="bkgImg2" style="opacity: 1;z-index: -2"></div>
-    <!--        <div id="bkgImg3" style="opacity: 0;z-index: -3"></div>-->
-    <!--        <div id="bkgImg4" style="opacity: 0;z-index: -4"></div>-->
-    <!--        <div id="bkgImg5" style="opacity: 0;z-index: -5"></div>-->
-    <!--        <div id="bkgImg6" style="opacity: 0;z-index: -6"></div>-->
 
     <% if (uid.equals("0")) { %>
     <div class="loginWindow">

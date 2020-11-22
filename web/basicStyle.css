@@ -36,9 +36,13 @@ ul.topnav li a:hover{
     top: 600px;
     background-color: #F5B199;
     right: 0;
-    height: 60px;
-    width: 60px;
     transition-duration: 0.3s;
+}
+
+.backToTop a{
+    display: block;
+    text-align: center;
+    padding: 15px 20px;
 }
 
 .backToTop:hover{
@@ -55,7 +59,7 @@ ul.topnav li a:hover{
 
 #indexBkgImg {
     width: 100%;
-    height: 700px;
+    height: 100vh;
     overflow: hidden;
     border: 0;
     padding: 0;
@@ -88,7 +92,7 @@ ul.topnav li a:hover{
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 700px;
+    height: 100vh;
     overflow: hidden;
     border: 0;
     padding: 0;
@@ -97,12 +101,12 @@ ul.topnav li a:hover{
 
 #bkgImg2{
     position: relative;
-    top: -700px;
+    top: -100vh;
     background-image: url("Image/Img1.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 700px;
+    height: 100vh;
     overflow: hidden;
     border: 0;
     padding: 0;
@@ -378,7 +382,7 @@ ul.topnav li a:hover{
 }
 
 #memo{
-    margin-top: 100px;
+    margin-top: 160px;
     margin-left: 15%;
     margin-right: 15%;
     width: 70%;
@@ -399,7 +403,7 @@ ul.topnav li a:hover{
     border: 0;
     padding: 0;
     margin: 0;
-    box-shadow: 0 -70px 100px 30px #281A14;
+    box-shadow: 0 -60px 100px 30px #281A14;
 }
 
 .footer {

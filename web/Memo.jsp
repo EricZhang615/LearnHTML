@@ -42,7 +42,7 @@
     <link rel="stylesheet" type="text/css" href="basicStyle.css">
 </head>
 <body>
-<div style="height: 60px;box-shadow: 0 0 120px 50px #281A14;" id="top"></div>
+<div style="height: 0;box-shadow: 0 60px 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
     <li><a href="#1">Memo</a></li>
@@ -58,10 +58,11 @@
         <div id="bkgImg1" style="opacity: 1;z-index: -1"></div>
         <div id="bkgImg2" style="opacity: 1;z-index: -2"></div>
     </div>
-    <div style="position: relative;z-index: 1;width: 100%;height: 700px;overflow: hidden;border: 0;padding: 0;margin: 0">
+    <div style="position: relative;z-index: 1;width: 100%;height: 100vh;overflow: hidden;border: 0;padding: 0;margin: 0">
         <div style="float: left;width: 15%;height: 100%"></div>
         <div style="float: left;width: 70%;height: 100%">
-            <div style="width: 100%;height: 85%;overflow: scroll">
+            <div style="width: 100%;height: 15%"></div>
+            <div style="width: 100%;height: 70%;overflow: scroll">
                 <%
                     while (rs.next()){
                         String uid = rs.getString("uid");
@@ -82,7 +83,7 @@
     </div>
 </div>
 
-<div id="pageBand">
+<div id="pageBand" style="">
     <div class="music" style="top: -100px">
         <audio src="" id="audiosrc"></audio>
         <div class="musicControl">

@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="basicStyle.css">
 </head>
 <body>
-<div style="height: 60px;box-shadow: 0 0 120px 50px #281A14;" id="top"></div>
+<div style="height: 0;box-shadow: 0 60px 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
     <li><a href="Memo.jsp">Memo</a></li>
@@ -46,7 +46,7 @@
         <div style="float: left;width: 15%;height: 100%"></div>
         <div style="float: left;width: 70%;height: 85%;">
             <form id="memoForm" action="MemoSubmit.jsp" method="post">
-                <textarea id="memo" type="text" name="memo" placeholder="Speak your mind freely..."></textarea>
+                <textarea id="memo" name="memo" placeholder="Speak your mind freely..."></textarea>
             </form>
             <button id="memoSubmitButton" class="memoButton" onclick="checkMemo()">Submit</button>
             <script>
