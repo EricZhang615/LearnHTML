@@ -1,7 +1,7 @@
 
 var music=document.getElementById("audiosrc");
 var index=0;
-var musicList=new Array("testmusic.mp3");
+var musicList=["放課後ティータイム - ふわふわ時間.mp3","茅原実里 - エイミー.mp3","放課後ティータイム - おはよう､またあした.mp3","放課後ティータイム - Don't say “lazy”.mp3"];
 var btn=document.getElementById("musicPlay");
 
 function getMusic(){

@@ -16,6 +16,7 @@
     String DB_URL = "jdbc:mysql://localhost:3306/userlist?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
     String USER = "root";
     String PASS = "zzy20000615";
+    request.setCharacterEncoding("UTF-8");
 
     if (request.getSession().getAttribute("uid") == "0" ||request.getSession().getAttribute("uid") == null){
         request.getSession().setAttribute("errState","unauthenticated");
@@ -40,8 +41,10 @@
     <meta charset="UTF-8">
     <title>Memo</title>
     <link rel="stylesheet" type="text/css" href="basicStyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Montserrat:ital,wght@0,600;1,600&family=Noto+Serif+JP:wght@300&family=Raleway&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="main" style="opacity: 0">
 <div style="height: 0;box-shadow: 0 60px 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
@@ -73,7 +76,28 @@
                            <div class="memoContent"><%=content%></div>
                        </div>
                        <%
-                   }%>
+                   }
+                               rs.close();
+                               stmt.close();
+                               conn.close();
+                           }catch(SQLException se){
+                               // 处理 JDBC 错误
+                               se.printStackTrace();
+                           }catch(Exception e){
+                               // 处理 Class.forName 错误
+                               e.printStackTrace();
+                           }finally {
+                               // 关闭资源
+                               try {
+                                   if (stmt != null) stmt.close();
+                               } catch (SQLException se2) {
+                               }// 什么都不做
+                               try {
+                                   if (conn != null) conn.close();
+                               } catch (SQLException se) {
+                                   se.printStackTrace();
+                               }
+                           }%>
             </div>
             <div style="width: 100%;height: 15%">
                 <button class="memoButton" onclick="location.href='MemoEdit.jsp'">Write a New Memo!</button>
@@ -99,30 +123,14 @@
 
 </body>
 </html>
+<script>
+    setTimeout(function (){document.getElementById("main").setAttribute('class','opacity2')},500)
+</script>
 <script src="SwitchBkgImg.js"></script>
 <script src="music.js"></script>
+
 <%
-        rs.close();
-        stmt.close();
-        conn.close();
-    }catch(SQLException se){
-        // 处理 JDBC 错误
-        se.printStackTrace();
-    }catch(Exception e){
-        // 处理 Class.forName 错误
-        e.printStackTrace();
-    }finally {
-        // 关闭资源
-        try {
-            if (stmt != null) stmt.close();
-        } catch (SQLException se2) {
-        }// 什么都不做
-        try {
-            if (conn != null) conn.close();
-        } catch (SQLException se) {
-            se.printStackTrace();
-        }
-    }
+
 if (request.getSession().getAttribute("errState") == "memoSubmitSuccess"){ %>
 <script>
     window.alert("留言提交成功")

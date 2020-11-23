@@ -1,6 +1,18 @@
 body {
     margin: 0;
-    background-image: url(stripe.png);
+    background-color: #fefbf6;
+}
+
+.clear{
+    background: rgba(255,255,255,0);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
 }
 
 ul.topnav {
@@ -8,7 +20,7 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     position: fixed;
     top: 0;
     width: 100%;
@@ -16,45 +28,80 @@ ul.topnav {
     box-shadow: 0 0 10px 3px #2b2b2b;
 }
 
-ul.topnav li {float: left;}
+ul.topnav li,ul.clear li{float: left;}
 
-ul.topnav li a {
+ul.topnav li a{
+    display: block;
+    color: #2b2b2b;
+    text-align: center;
+    padding: 20px 30px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 110%;
+    font-style: italic;
+}
+
+ul.clear li a{
     display: block;
     color: #F8FBF8;
     text-align: center;
     padding: 20px 30px;
     text-decoration: none;
     transition-duration: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 110%;
+    font-style: italic;
 }
 
-ul.topnav li a:hover{
-    background-color: #EE827C;
+ul.topnav li span{
+    display: block;
+    color: #2b2b2b;
+    text-align: center;
+    padding: 14px 10vw;
+    transition-duration: 0.3s;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 150%;
+}
+
+ul.clear li span{
+    display: block;
+    color: #F8FBF8;
+    text-align: center;
+    padding: 14px 10vw;
+    transition-duration: 0.3s;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 150%;
+}
+
+ul.topnav li a:hover,ul.clear li a:hover{
+    background-color: #f18a14;
+    color: #F8FBF8;
 }
 
 .backToTop{
+    display: none;
     position: fixed;
     top: 600px;
-    background-color: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     right: 0;
     transition-duration: 0.3s;
+    z-index: 1;
 }
 
 .backToTop a{
     display: block;
     text-align: center;
     padding: 15px 20px;
-}
-
-.backToTop:hover{
-    background-color: #EE827C;
-}
-
-.backToTop a{
-    display: block;
-    color: #F8FBF8;
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
     margin: auto;
     text-decoration: none;
+    color: #2b2b2b;
+}
+
+.backToTop a:hover{
+    background-color: #f18a14;
 }
 
 #indexBkgImg {
@@ -71,6 +118,11 @@ ul.topnav li a:hover{
     animation-fill-mode: forwards;
 }
 
+.opacity2 {
+    animation: 0.8s ani2 linear;
+    animation-fill-mode: forwards;
+}
+
 @keyframes ani {
     0% {
         opacity: 1;
@@ -82,6 +134,20 @@ ul.topnav li a:hover{
 
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes ani2 {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
@@ -121,7 +187,7 @@ ul.topnav li a:hover{
     position: relative;
     margin-left: 200px;
     top: -140px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .musicControl{
@@ -175,15 +241,42 @@ ul.topnav li a:hover{
 .musicTitle{
     float: left;
     height: 50px;
-    width: 200px;
+    width: 400px;
     text-align: center;
     overflow: hidden;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 120%;
 }
 
 #TrackTitle{
     color: #F8FBF8;
     float: left;
     line-height: 50px;
+}
+
+.welcome{
+    position: absolute;
+    color: #F8FBF8;
+    top: 200px;
+    right: 200px;
+    height: 375px;
+    width: 120px;
+    font-size: 120px;
+    line-height: 120%;
+    font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.welcome:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 60px;
+    right: 0;
+    bottom: 0;
+    height: 325px;
+    width: 0;
+    box-shadow: 0 0 150px 70px #2b2b2b;
+    z-index: -1;
 }
 
 .loginWindow{
@@ -194,6 +287,7 @@ ul.topnav li a:hover{
     height: 375px;
     width: 300px;
     border-radius: 25px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .loginWindow form>div:nth-of-type(1){
@@ -241,13 +335,14 @@ ul.topnav li a:hover{
     height: 40px;
     border: 0;
     border-radius: 15px;
-    background-color: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     transition-duration: 0.3s;
     outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
 }
 
 .loginWindow button:hover{
-    background-color: #EE827C;
     color: #F8FBF8;
 }
 
@@ -260,6 +355,7 @@ ul.topnav li a:hover{
     height: 385px;
     width: 300px;
     border-radius: 25px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .registerWindow form>div:nth-of-type(1){
@@ -326,19 +422,22 @@ ul.topnav li a:hover{
     height: 40px;
     border: 0;
     border-radius: 15px;
-    background-color: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     transition-duration: 0.3s;
     outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
 }
 
 .registerWindow button:hover{
-    background-color: #EE827C;
     color: #F8FBF8;
 }
 
 .loginWindow div{
     margin-left: 60px;
     margin-top: 30px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 110%;
 }
 
 .loginWindow div>a{
@@ -353,7 +452,7 @@ ul.topnav li a:hover{
     margin-top: 40px;
     padding: 20px;
     border-radius: 25px;
-    background-color: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     float: left;
     height: 150px;
     width: 240px;
@@ -361,7 +460,7 @@ ul.topnav li a:hover{
 }
 
 .memoBlock:hover{
-    background-color: #EE827C;
+    background-color: #f18a14;
 }
 
 .memoButton{
@@ -372,13 +471,13 @@ ul.topnav li a:hover{
     height: 40px;
     border: 0;
     border-radius: 15px;
-    background-color: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     transition-duration: 0.3s;
     outline: none;
 }
 
 .memoButton:hover{
-    background-color: #EE827C;
+    background-color: #f18a14;
 }
 
 #memo{
@@ -397,7 +496,7 @@ ul.topnav li a:hover{
 }
 
 #pageBand{
-    background: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     width: 100%;
     height: 70px;
     border: 0;
@@ -406,8 +505,118 @@ ul.topnav li a:hover{
     box-shadow: 0 -60px 100px 30px #281A14;
 }
 
+.stackBanner{
+    margin: 0 auto;
+    width: 100%;
+    height: 75px;
+}
+
+.stackBanner div:nth-of-type(1){
+    text-align: center;
+    line-height: 65px;
+    letter-spacing: 7px;
+    font-size: 350%;
+    font-family: 'Kosugi Maru', sans-serif;
+    opacity: 20%;
+    color: #ff9720;
+}
+
+.stackBanner div:nth-of-type(2){
+    position: relative;
+    top: -75%;
+    text-align: center;
+    letter-spacing: 10px;
+    font-size: 200%;
+    font-family: "STYuanti-SC-Bold", sans-serif;
+    color: #ff9720;
+}
+
+.sceneImg{
+    position: relative;
+    left: -15vw;
+    background-image: url("scenePhoto.jpg");
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: center;
+}
+
+.introduction{
+    margin: 0 auto;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 20px;
+    font-size: 110%;
+    line-height: 160%;
+    font-family: 'pingFangSC-Light', sans-serif;
+}
+
+.introduction span{
+    font-family: 'Noto Serif JP', serif;
+}
+
+.videoTitle{
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    line-height: 250px;
+    font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.videoDescribe{
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'Sawarabi Mincho', sans-serif;
+    color: #F8FBF8;
+}
+
+.insertVideo{
+    float: left;
+    height: 300px;
+    width: 50%;
+}
+
+.insertVideo iframe{
+    border: none;
+    width: 400px;
+    height: 225px;
+    margin: 37px;
+}
+
+#indexSponsorTable{
+    width: 100%;
+    height: 225px;
+    font-family: 'Noto Serif JP', serif;
+    overflow: scroll;
+}
+
+#indexSponsorTable table tr td{
+    font-size: 170%;
+    text-align: center;
+}
+
+.linkOfficial{
+    text-align: center;
+    line-height: 100px;
+    letter-spacing: 7px;
+    font-size: 150%;
+    font-family: "STYuanti-SC-Bold", sans-serif;
+    color: #ff9720;
+    margin: 0 auto;
+    width: 30%;
+    height: 100px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.linkOfficial:hover{
+    color: #be6c0b;
+}
+
+
 .footer {
-    background: #F5B199;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
     width: 100%;
     height: 100px;
     overflow: hidden;

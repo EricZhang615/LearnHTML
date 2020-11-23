@@ -16,6 +16,7 @@
         request.getSession().setAttribute("errState","unauthenticated");
         response.sendRedirect("index.jsp");
     }
+    request.setCharacterEncoding("UTF-8");
 
 %>
 
@@ -24,8 +25,10 @@
     <meta charset="UTF-8">
     <title>Memo</title>
     <link rel="stylesheet" type="text/css" href="basicStyle.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Montserrat:ital,wght@0,600;1,600&family=Noto+Serif+JP:wght@300&family=Raleway&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="main" style="opacity: 0">
 <div style="height: 0;box-shadow: 0 60px 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
@@ -82,5 +85,8 @@
 
 </body>
 </html>
+<script>
+    setTimeout(function (){document.getElementById("main").setAttribute('class','opacity2')},500)
+</script>
 <script src="SwitchBkgImg.js"></script>
 <script src="music.js"></script>

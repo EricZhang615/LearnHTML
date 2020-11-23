@@ -12,6 +12,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <%
+    request.setCharacterEncoding("UTF-8");
+
     if (request.getSession().getAttribute("uid") == "0" ||request.getSession().getAttribute("uid") == null){
         request.getSession().setAttribute("errState","unauthenticated");
         response.sendRedirect("index.jsp");
@@ -36,7 +38,7 @@
 
         rs.next();
         String newMemoId = String.valueOf(Integer.parseInt(rs.getString("memoId")) + 1);
-        sql = "INSERT INTO memo (memoId,uid,content,time) VALUES ('"+newMemoId+"','"+request.getSession().getAttribute("uid")+"','"+memoInput+"',NOW())";
+        sql = "INSERT INTO memo (memoId,uid,content,time) VALUES ('"+newMemoId+"','"+request.getSession().getAttribute("uid")+"',N'"+memoInput+"',NOW())";
         stmt.execute(sql);
         request.getSession().setAttribute("errState","memoSubmitSuccess");
         response.sendRedirect("Memo.jsp");
