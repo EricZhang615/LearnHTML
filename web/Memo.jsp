@@ -51,6 +51,7 @@
     <li><a href="#1">Memo</a></li>
     <li><a href="#2">Shop</a></li>
     <li><a href="#3">Contact us</a></li>
+    <li><span>京都动画非官方FanClub</span></li>
     <li style="float: right"><a href="Logout.jsp">Log Out</a></li>
 </ul>
 
