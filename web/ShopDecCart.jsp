@@ -24,6 +24,23 @@
 
     String uid = (String) request.getSession().getAttribute("uid");
     String goodId = request.getParameter("goodId");
+    Cookie cookie = null;
+    Cookie[] cookies = request.getCookies();
+    String shopHistory = "null";
+    int i;
+    for (i=0; i<cookies.length;i++){
+        cookie = cookies[i];
+        if (cookie.getName().equals("KyoaniShopHistory")){
+            shopHistory = cookie.getValue();
+            break;
+        }
+    }
+    if (i==cookies.length){
+        Cookie history = new Cookie("KyoaniShopHistory","null");
+        history.setMaxAge(60*60*24*30);
+        response.addCookie(history);
+    }
+
 
     Connection conn = null;
     Statement stmt = null;
@@ -35,14 +52,26 @@
         String sql;
 
         if (goodId.equals("all")){
+            sql = "SELECT cartGoodId FROM `"+uid+"`";
+            ResultSet cartGoodId = stmt.executeQuery(sql);
+            while (cartGoodId.next()){
+                shopHistory = cartGoodId.getString("cartGoodId");
+            }
+            Cookie history = new Cookie("KyoaniShopHistory",shopHistory);
+            history.setMaxAge(60*60*24*30);
+            response.addCookie(history);
+            cartGoodId.close();
             sql = "DROP TABLE `"+uid+"`";
             stmt.execute(sql);
+            request.getSession().setAttribute("errState","settleSuccess");
+
         } else {
             sql = "DELETE FROM `"+uid+"` WHERE cartGoodId='"+goodId+"'";
             stmt.execute(sql);
+            request.getSession().setAttribute("errState","decCartSuccess");
         }
 
-        request.getSession().setAttribute("errState","decCartSuccess");
+
 
         stmt.close();
         conn.close();

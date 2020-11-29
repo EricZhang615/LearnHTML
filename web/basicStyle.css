@@ -118,11 +118,6 @@ ul.topnav li a:hover,ul.clear li a:hover{
     animation-fill-mode: forwards;
 }
 
-.opacity2 {
-    animation: 0.8s ani2 linear;
-    animation-fill-mode: forwards;
-}
-
 @keyframes ani {
     0% {
         opacity: 1;
@@ -135,6 +130,11 @@ ul.topnav li a:hover,ul.clear li a:hover{
     100% {
         opacity: 0;
     }
+}
+
+.opacity2 {
+    animation: 0.8s ani2 linear;
+    animation-fill-mode: forwards;
 }
 
 @keyframes ani2 {
@@ -344,6 +344,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
 
 .loginWindow button:hover{
     color: #F8FBF8;
+    filter: brightness(95%);
 }
 
 .registerWindow{
@@ -431,6 +432,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
 
 .registerWindow button:hover{
     color: #F8FBF8;
+    filter: brightness(95%);
 }
 
 .loginWindow div{
@@ -477,7 +479,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
 }
 
 .memoButton:hover{
-    background-color: #f18a14;
+    filter: brightness(95%);
 }
 
 #memo{
@@ -627,4 +629,240 @@ ul.topnav li a:hover,ul.clear li a:hover{
 
 .footer_left {
     padding: 20px;
+}
+
+.shopBanner{
+    height: 200px;
+    width: 100vw;
+}
+
+.goodBlock{
+    margin: 15px;
+    height: 330px;
+    width: 250px;
+    float: left;
+    outline: 1px solid darkgray;
+    transition-duration: 0.3s;
+}
+
+.goodBlock:hover{
+    outline: 1px solid #ff9720;
+}
+
+.goodImg{
+    margin-top: 15px;
+    margin-right: 3%;
+    margin-left: 3%;
+    height: 150px;
+    width: 94%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.goodName{
+    height: 25px;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 100%;
+}
+
+.goodPrice{
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 320%;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.goodPrice span{
+    font-size: 60%;
+}
+
+.goodStock{
+    height: 10px;
+    width: 100%;
+    text-align: center;
+    line-height: 10px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 100%;
+}
+.goodBlock form input:nth-of-type(2){
+    height: 40px;
+    width: 29%;
+    margin: 10px 3%;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 130%;
+    border: none;
+    border-radius: 30px;
+    background-color: #ffdebd;
+}
+
+.goodBlock form input:nth-of-type(2):focus{
+    outline: none;
+}
+
+.goodBlock form input:nth-of-type(3){
+    height: 40px;
+    width: 62%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 3%;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 30px;
+    background-color: #ff9720;
+    transition-duration: 0.3s;
+}
+
+.goodBlock form input:nth-of-type(3):hover,.goodBlock form input:nth-of-type(3):focus{
+    background-color: #f18a14;
+    color: #F8FBF8;
+    outline: none;
+}
+
+.cart{
+    height: 300px;
+    width: 500px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+.cartGood{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 480px;
+    height: 240px;
+    overflow: scroll;
+}
+
+.cartGoodBlock{
+    height: 50px;
+    width: 100%;
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: #281A14;
+}
+
+.cartGoodImg{
+    float: left;
+    margin: 2px;
+    height: 46px;
+    width: 46px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.cartGoodName{
+    float: left;
+    margin: 5px 15px;
+    height: 40px;
+    width: 200px;
+    line-height: 40px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 100%;
+}
+
+.cartGoodPrice{
+    float: left;
+    margin: 5px 10px;
+    height: 40px;
+    width: 60px;
+    line-height: 40px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 100%;
+}
+
+.cartGoodAmount{
+    float: left;
+    margin: 5px 10px;
+    height: 40px;
+    width: 20px;
+    line-height: 40px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 100%;
+}
+
+.cartGoodBlock form input:nth-of-type(2){
+    float: left;
+    margin: 5px 10px;
+    height: 40px;
+    width: 60px;
+    line-height: 37px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff9720;
+    transition-duration: 0.3s;
+}
+
+.cartGoodBlock form input:nth-of-type(2):hover,.cartGoodBlock form input:nth-of-type(2):focus{
+    background-color: #f18a14;
+    color: #F8FBF8;
+    outline: none;
+}
+
+.cartSum{
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #feae34 0%, #fe9733 100%);
+    color: #281A14;
+}
+
+.cartSum div:nth-of-type(1){
+    float: left;
+    margin: 5px 5px 5px 75px;
+    height: 40px;
+    width: 200px;
+    text-align: right;
+    line-height: 40px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 130%;
+}
+
+.cartSum div:nth-of-type(2){
+    float: left;
+    margin-top: 5px;
+    height: 40px;
+    width: 90px;
+    line-height: 35px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 130%;
+}
+
+.cartSum div:nth-of-type(2) span{
+    font-size: 70%;
+}
+
+.cartSum button{
+    float: left;
+    height: 50px;
+    width: 130px;
+    border: none;
+    background-color: transparent;
+    line-height: 40px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 130%;
+    transition-duration: 0.5s;
+}
+
+.cartSum button:hover{
+    background-color: #f18a14;
+}
+
+.cartSum button:focus{
+    outline: none;
 }
