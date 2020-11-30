@@ -665,7 +665,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
     height: 25px;
     width: 100%;
     text-align: center;
-    line-height: 30px;
+    line-height: 20px;
     font-family: 'pingFangSC-Light', sans-serif;
     font-size: 100%;
 }
@@ -674,8 +674,8 @@ ul.topnav li a:hover,ul.clear li a:hover{
     height: 60px;
     width: 100%;
     text-align: center;
-    line-height: 50px;
-    font-size: 320%;
+    line-height: 60px;
+    font-size: 280%;
     font-family: 'Noto Serif JP', serif;
 }
 
@@ -775,6 +775,8 @@ ul.topnav li a:hover,ul.clear li a:hover{
     line-height: 40px;
     font-family: 'pingFangSC-Light', sans-serif;
     font-size: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cartGoodPrice{
@@ -890,13 +892,13 @@ ul.topnav li a:hover,ul.clear li a:hover{
 
 .movebkg1{
     background-position: top right;
-    transition-duration: 110s;
+    transition-duration: 130s;
     transition-timing-function: linear;
 }
 
 .movebkg2{
     background-position: top left;
-    transition-duration: 110s;
+    transition-duration: 130s;
     transition-timing-function: linear;
 }
 

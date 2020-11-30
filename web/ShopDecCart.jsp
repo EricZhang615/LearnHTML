@@ -44,23 +44,33 @@
 
     Connection conn = null;
     Statement stmt = null;
+//    Statement stmt2 = null;
 
     try{
         Class.forName(JDBC_DRIVER);
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
         stmt = conn.createStatement();
-        String sql;
+//        stmt2 = conn.createStatement();
+                String sql;
 
         if (goodId.equals("all")){
-            sql = "SELECT cartGoodId FROM `"+uid+"`";
-            ResultSet cartGoodId = stmt.executeQuery(sql);
-            while (cartGoodId.next()){
-                shopHistory = cartGoodId.getString("cartGoodId");
+            sql = "SELECT * FROM `"+uid+"`";
+            ResultSet cartGood = stmt.executeQuery(sql);
+            while (cartGood.next()){
+                shopHistory = cartGood.getString("cartGoodId");
+//                String num = cartGood.getString("cartGoodAmount");
+//                String sql2 = "SELECT goodStock FROM goodList WHERE goodId='"+shopHistory+"'";
+//                ResultSet stock = stmt2.executeQuery(sql2);
+//                stock.next();
+//                String resStock = stock.getString("goodStock");
+//                if ( Integer.parseInt(resStock) < Integer.parseInt(num) ) {
+//
+//                }
             }
             Cookie history = new Cookie("KyoaniShopHistory",shopHistory);
             history.setMaxAge(60*60*24*30);
             response.addCookie(history);
-            cartGoodId.close();
+            cartGood.close();
             sql = "DROP TABLE `"+uid+"`";
             stmt.execute(sql);
             request.getSession().setAttribute("errState","settleSuccess");

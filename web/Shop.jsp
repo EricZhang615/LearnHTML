@@ -86,7 +86,7 @@
     <%
         if (!shopHistory.equals("null")){%>
         <div style="width: 100%;height: 400px">
-            <div>最近购买</div>
+            <div style="height: 40px;width: 200px;line-height: 40px;font-family: 'pingFangSC-Light', sans-serif;font-size: 200%;color: #F8FBF8">最近购买</div>
         <%
             sql = "SELECT * FROM goodList WHERE goodId='"+shopHistory+"'";
         ResultSet historyGood = stmt.executeQuery(sql);
@@ -166,7 +166,7 @@
         %>
         <div class="cartGoodBlock">
             <div class="cartGoodImg" style="background-image: url(<%=goodImageUrl%>)"></div>
-            <div class="cartGoodName"><%=goodName%></div>
+            <div class="cartGoodName"><nobr><%=goodName%></nobr></div>
             <div class="cartGoodPrice"><span>¥</span><%=goodPrice%></div>
             <div class="cartGoodAmount"><%=goodAmount%></div>
             <form action="ShopDecCart.jsp" method="post">
@@ -263,7 +263,7 @@
         }
     }
     setTimeout(change,300);
-    setInterval(change,110000);
+    setInterval(change,130000);
 </script>
 <%
     if (request.getSession().getAttribute("errState") == "addCartSuccess"){ %>
