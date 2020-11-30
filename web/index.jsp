@@ -44,7 +44,7 @@
 <ul class="clear" id="topbar">
     <li><a href="index.jsp">Home</a></li>
     <li><a href="Memo.jsp">Memo</a></li>
-    <li><a href="#2">Shop</a></li>
+    <li><a href="Shop.jsp">Shop</a></li>
     <li><a href="#3">Contact us</a></li>
     <li><span>京都动画非官方FanClub</span></li>
     <% if (uid.equals("0")) { %>

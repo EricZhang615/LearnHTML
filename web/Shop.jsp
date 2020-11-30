@@ -61,20 +61,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Montserrat:ital,wght@0,600;1,600&family=Noto+Serif+JP:wght@300&family=Raleway&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 </head>
 <body id="main" style="opacity: 0">
+<div style="position: fixed;width: 100vw;height: 0;top: 5px;left: 0;z-index: -1">
+    <div class="movebkg1" id="shopBackImg"></div>
+</div>
 <div style="height: 60px" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
-    <li><a href="#1">Memo</a></li>
-    <li><a href="#2">Shop</a></li>
+    <li><a href="Memo.jsp">Memo</a></li>
+    <li><a href="Shop.jsp">Shop</a></li>
     <li><a href="#3">Contact us</a></li>
     <li><span>京都动画非官方FanClub</span></li>
     <li style="float: right"><a href="Logout.jsp">Log Out</a></li>
 </ul>
 
-<div class="shopBanner"></div>
+<div class="shopBanner">
+    <div class="stackBanner" style="position: relative;left: -10%;top: 50%">
+        <div>グローサリー</div>
+        <div>杂货铺</div>
+    </div>
+</div>
 
-<div style="float: left;width: 25vw;height: 1000px"></div>
-<div style="float: left;width: 60vw;height: 1500px">
+<div style="float: left;width: 20vw;height: 200px"></div>
+<div style="float: left;width: 60vw;height: 1500px;">
     <%
         if (!shopHistory.equals("null")){%>
         <div style="width: 100%;height: 400px">
@@ -114,8 +122,9 @@
                 String goodStock = rs.getString("goodStock");
                 String goodPrice = rs.getString("goodPrice");
                 String goodImageUrl = "Image/goodImage/"+goodId+".jpeg";
+                String goodClass = goodId.substring(0,1);
         %>
-        <div class="goodBlock">
+        <div class="goodBlock <%=goodClass%>">
             <div class="goodImg" style="background-image: url(<%=goodImageUrl%>)"></div>
             <div class="goodName"><%=goodName%></div>
             <div class="goodPrice"><span>¥ </span><%=goodPrice%></div>
@@ -131,13 +140,9 @@
             rs.close();%>
     </div>
 </div>
-<div style="float: left;width: 15vw;height: 1000px"></div>
+<div style="float: left;width: 20vw;height: 200px"></div>
 
-
-
-
-
-
+<%--ShopCartPart--%>
 <%
     sql = "SELECT * FROM information_schema.TABLES WHERE TABLE_NAME = '"+uid+"'";
     ResultSet check = stmt.executeQuery(sql);
@@ -177,6 +182,26 @@
             DecimalFormat df = new DecimalFormat("########.##");
             String tp = df.format(totalPrice);
         %>
+        <div id="fold" onclick="unfold()">收起</div>
+        <script>
+            var cart = document.getElementsByClassName("cart");
+            var cartGood = document.getElementsByClassName("cartGood");
+            var fold = document.getElementById("fold");
+            var index = 1;
+            function unfold(){
+                if (index == 1){
+                    cartGood[0].style.display = "none";
+                    cart[0].style.height = "50px";
+                    index = 0;
+                    fold.innerHTML = "展开";
+                } else {
+                    cartGood[0].style.display = "block";
+                    cart[0].style.height = "300px";
+                    index = 1;
+                        fold.innerHTML = "收起";
+                }
+            }
+        </script>
         <div>小计：</div>
         <div><span>¥ </span><%=tp%></div>
         <%if (!tp.equals("0")){%>
@@ -223,6 +248,22 @@
 </html>
 <script>
     setTimeout(function (){document.getElementById("main").setAttribute('class','opacity2')},500)
+</script>
+<script>
+    // setTimeout(function (){document.getElementById("shopBackImg").setAttribute('class','movebkg2')},5000);
+    // setTimeout(function (){document.getElementById("shopBackImg").setAttribute('class','movebkg1')},10000);
+    // setTimeout(function (){document.getElementById("shopBackImg").setAttribute('class','movebkg2')},10000);
+    var img = document.getElementById("shopBackImg");
+
+    function change(){
+        if (img.getAttribute('class') == "movebkg1"){
+            img.setAttribute('class','movebkg2');
+        } else {
+            img.setAttribute('class','movebkg1');
+        }
+    }
+    setTimeout(change,300);
+    setInterval(change,110000);
 </script>
 <%
     if (request.getSession().getAttribute("errState") == "addCartSuccess"){ %>

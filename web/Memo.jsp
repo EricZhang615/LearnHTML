@@ -48,8 +48,8 @@
 <div style="height: 0;box-shadow: 0 60px 120px 50px #281A14;" id="top"></div>
 <ul class="topnav">
     <li><a href="index.jsp">Home</a></li>
-    <li><a href="#1">Memo</a></li>
-    <li><a href="#2">Shop</a></li>
+    <li><a href="Memo.jsp">Memo</a></li>
+    <li><a href="Shop.jsp">Shop</a></li>
     <li><a href="#3">Contact us</a></li>
     <li><span>京都动画非官方FanClub</span></li>
     <li style="float: right"><a href="Logout.jsp">Log Out</a></li>

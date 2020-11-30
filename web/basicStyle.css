@@ -637,6 +637,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
 }
 
 .goodBlock{
+    background-color: #fefbf6;
     margin: 15px;
     height: 330px;
     width: 250px;
@@ -736,6 +737,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
     position: fixed;
     right: 0;
     bottom: 0;
+    background-color: #F8FBF8;
 }
 
 .cartGood{
@@ -822,9 +824,19 @@ ul.topnav li a:hover,ul.clear li a:hover{
     color: #281A14;
 }
 
-.cartSum div:nth-of-type(1){
+#fold{
     float: left;
-    margin: 5px 5px 5px 75px;
+    height: 50px;
+    width: 75px;
+    text-align: center;
+    line-height: 50px;
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 130%;
+}
+
+.cartSum div:nth-of-type(2){
+    float: left;
+    margin: 5px 5px 5px 0;
     height: 40px;
     width: 200px;
     text-align: right;
@@ -833,7 +845,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
     font-size: 130%;
 }
 
-.cartSum div:nth-of-type(2){
+.cartSum div:nth-of-type(3){
     float: left;
     margin-top: 5px;
     height: 40px;
@@ -843,7 +855,7 @@ ul.topnav li a:hover,ul.clear li a:hover{
     font-size: 130%;
 }
 
-.cartSum div:nth-of-type(2) span{
+.cartSum div:nth-of-type(3) span{
     font-size: 70%;
 }
 
@@ -866,3 +878,25 @@ ul.topnav li a:hover,ul.clear li a:hover{
 .cartSum button:focus{
     outline: none;
 }
+
+#shopBackImg{
+    height: 100vh;
+    width: 100vw;
+    filter: brightness(70%);
+    background-image: url("Image/shop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.movebkg1{
+    background-position: top right;
+    transition-duration: 110s;
+    transition-timing-function: linear;
+}
+
+.movebkg2{
+    background-position: top left;
+    transition-duration: 110s;
+    transition-timing-function: linear;
+}
+
