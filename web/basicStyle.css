@@ -465,6 +465,16 @@ ul.topnav li a:hover,ul.clear li a:hover{
     background-color: #f18a14;
 }
 
+.memoUid{
+    font-family: 'Noto Serif JP', serif;
+    font-size: 100%;
+}
+
+.memoContent{
+    font-family: 'pingFangSC-Light', sans-serif;
+    font-size: 100%;
+}
+
 .memoButton{
     float: right;
     margin-top: 30px;
